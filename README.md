@@ -1,4 +1,8 @@
-# helloTicket (TST) – Backend API
+# HelloTicket — Backend API
+
+**Dokumentacja techniczna:** [warstwy, API, persistence, konfiguracja i zależności](docs/technical.md).
+
+Przegląd lokalnych źródeł: **31.10.2026**. [Architektura i praca nad modułem](docs/development.md) opisuje mapę kodu, konfigurację i weryfikację. Sekcje serwerowe poniżej są dotychczasową instrukcją TST; adresy, obrazy i montowania wymagają potwierdzenia przed ponownym użyciem. [Mapa systemu](https://github.com/cig-hellopoland/hellopoland-docs/blob/main/README.md) prowadzi do repozytorium dokumentacji na GitHubie.
 
 Backendowa aplikacja Java odpowiedzialna za obsługę sprzedaży, rezerwacji
 i zarządzania biletami w ekosystemie **Hello! Poland**.
@@ -11,7 +15,7 @@ w kontenerze Docker i pełni rolę **wewnętrznego backendu biletowego**
 
 ## 🛠 Stos technologiczny
 
-- **Język:** Java 17 (runtime) / Java 21 (build)
+- **Język:** Java 21 (kompilacja i uruchomienie zgodnie z POM i Dockerfile)
 - **Serwer aplikacyjny:** WildFly
 - **Konteneryzacja:** Docker
 - **Baza danych:** PostgreSQL
@@ -53,7 +57,7 @@ target/helloticket.war
 
 | Cecha | Build-time | Runtime |
 |------|-----------|---------|
-| Pliki | `maven.build.[tst/prod].properties` | `local.runtime.properties` |
+| Pliki | `maven.build.[tst/prod].properties` | Zasób `runtime.properties` w WAR oraz zewnętrzne `local.runtime.properties` |
 | Mechanizm | Maven resource filtering | bind-mount do kontenera |
 | Zmiana | wymaga rebuild WAR | wymaga restartu kontenera |
 
